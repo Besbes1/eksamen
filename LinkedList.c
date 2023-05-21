@@ -54,7 +54,8 @@ Node* removeNode(Node* head, int data) {
             } else {
                 // Bypass the node
                 prev->next = cursor->next;
-                free(cursor); // Free the node
+                free(cursor);
+                return head;
             }
         } else {
             // Keep moving if the current node is not the target
@@ -84,7 +85,7 @@ Node* replaceNode(Node* head, int position, int new_data) {
         return NULL;
     }
     Node* cursor = head;
-    int pos = 0;
+    int pos = 1;
     // Traverse the list until the position is reached or the list ends
     while(cursor != NULL && pos != position) {
         cursor = cursor->next;
@@ -112,7 +113,7 @@ int main() {
     head = replaceNode(head, 1, 5); // Replace the 2nd node's data with 5
     printList(head); // Print the list again
 
-    head = removeNode(head, 1); // Remove 1 from the list
+    head = removeNode(head, 2); // Remove 1 from the list
     printList(head); // Print the list again
 
     return 0;
