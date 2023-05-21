@@ -5,12 +5,12 @@
 typedef struct Node {
     int data; // Integer data
     struct Node *next; // Pointer to the next node
-} Node;
+};
 
 // Function to create a new node with given data
-Node* createNode(int data) {
+struct Node* createNode(int data) {
     // Allocate memory for a new node
-    Node* newNode = (Node*)malloc(sizeof(Node));
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     if(newNode == NULL) {
         printf("Error creating a new node.\n");
         exit(0);
@@ -22,13 +22,13 @@ Node* createNode(int data) {
 }
 
 // Function to append a node to the end of the list
-Node* appendNode(Node* head, int data) {
+struct Node* appendNode(struct Node* head, int data) {
     // If the list is empty, create a new node and return it as the head
     if(head == NULL) {
         return createNode(data);
     }
     // Traverse to the end of the list
-    Node* cursor = head;
+    struct Node* cursor = head;
     while(cursor->next != NULL) {
         cursor = cursor->next;
     }
@@ -39,8 +39,8 @@ Node* appendNode(Node* head, int data) {
 }
 
 // Function to remove a node with given data from the list
-Node* removeNode(Node* head, int data) {
-    Node *cursor, *prev;
+struct Node* removeNode(struct Node* head, int data) {
+    struct Node *cursor, *prev;
     cursor = head;
     // Traverse the list
     while(cursor != NULL) {
@@ -67,8 +67,8 @@ Node* removeNode(Node* head, int data) {
 }
 
 // Function to print the list
-void printList(Node* head) {
-    Node* cursor = head;
+void printList(struct Node* head) {
+    struct Node* cursor = head;
     // Traverse the list
     while(cursor != NULL) {
         printf("%d ", cursor->data); // Print data
@@ -78,13 +78,13 @@ void printList(Node* head) {
 }
 
 // Function to replace the content of a node given its position
-Node* replaceNode(Node* head, int position, int new_data) {
+struct Node* replaceNode(struct Node* head, int position, int new_data) {
     // If the list is empty, return NULL
     if(head == NULL) {
         printf("Error: The list is empty.\n");
         return NULL;
     }
-    Node* cursor = head;
+    struct Node* cursor = head;
     int pos = 1;
     // Traverse the list until the position is reached or the list ends
     while(cursor != NULL && pos != position) {
@@ -102,7 +102,7 @@ Node* replaceNode(Node* head, int position, int new_data) {
 }
 
 int main() {
-    Node* head = NULL;
+    struct Node* head = NULL;
 
     // Test functions here.
     head = appendNode(head, 1); // Add 1 to the list
