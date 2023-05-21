@@ -75,16 +75,14 @@ int numberOfWords(struct charNode* string){
 //Replaces in place (in the existing linked list representing the string)
 // a character from the input string located at position pos with the
 // argument letter
-void replaceLetterAtPos(struct charNode* string, unsigned int pos, char
-letter){
+void replaceLetterAtPos(struct charNode* string, unsigned int pos, char letter){
 //Missing code 3
     struct charNode* current = string;
     unsigned int index = 0;
 
-    while (current && index < pos) {
+    while (current != NULL && index < pos) {
         current = current->next;
         index++;
-
     }
 
     if (current) {
